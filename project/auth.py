@@ -39,7 +39,7 @@ def signup_post():
     name = request.form.get('name')
     password = request.form.get('password')
 
-    user = User.query.filter_by(email=email).first()
+    user = User.query.filter_by(email=email).all()
     if user:
         flash('Email address already exists')
         app.logger.debug("User email already exists")
